@@ -1,0 +1,183 @@
+body {
+    background: linear-gradient(135deg, #e4eafe 0%, #c7dbff 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .App {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .game-container {
+    background: #fff;
+    border-radius: 32px;
+    padding: 3.5rem 4.5rem 2.8rem 4.5rem;
+    box-shadow: 0 8px 40px rgba(52, 104, 238, 0.18);
+    max-width: 540px;
+    min-width: 400px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: pop-in 0.8s cubic-bezier(0.3, 0.7, 0.4, 1.4);
+  }
+  
+  @keyframes pop-in {
+    0% {
+      transform: scale(0.88) translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .game-title {
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #4262fa;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 10px #c8d5f5;
+  }
+  
+  .maze-area {
+    width: 350px;
+    height: 170px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, #dde8f1 40%, #e5ecfc 100%);
+    border-radius: 28px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(67, 98, 250, 0.09);
+  }
+  
+  .character {
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    bottom: 28px;
+    transition: left 0.7s cubic-bezier(.77,0,.18,1.04), bottom 0.7s cubic-bezier(.77,0,.18,1.04);
+    z-index: 2;
+  }
+  .character-center {
+    left: 140px;
+  }
+  .character-left {
+    left: 30px;
+  }
+  .character-right {
+    left: 260px;
+  }
+  .character-up {
+    left: 160px;
+    bottom: 100px;
+    transition: left 0.7s, bottom 1.1s cubic-bezier(.77,0,.18,1.04);
+  }
+  
+  .monster {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 260px;
+    bottom: 38px;
+    z-index: 1;
+  }
+  
+  .ladder {
+    width: 50px;
+    height: 120px;
+    position: absolute;
+    left: 280px;
+    bottom: 25px;
+    z-index: 0;
+  }
+  
+  .sword {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 95px;
+    bottom: 98px;
+    z-index: 1;
+  }
+  
+  .sword-swing {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 240px;
+    bottom: 68px;
+    z-index: 10;
+    animation: swingSword 0.6s linear;
+  }
+  @keyframes swingSword {
+    0% { transform: rotate(0deg) scale(0.7); }
+    40% { transform: rotate(-100deg) scale(1.1);}
+    80% { transform: rotate(10deg) scale(1.05);}
+    100% { transform: rotate(0deg) scale(1);}
+  }
+  
+  .story {
+    font-size: 1.23rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    min-height: 54px;
+    color: #23263a;
+    line-height: 1.55;
+  }
+  
+  .choices {
+    text-align: center;
+  }
+  .choices button {
+    margin: 0 18px 10px 18px;
+    padding: 0.85em 2.5em;
+    border-radius: 18px;
+    border: none;
+    background: linear-gradient(95deg, #4262fa 60%, #7498f7 100%);
+    color: #fff;
+    font-size: 1.18rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(52,104,238,0.12);
+    transition: background 0.18s, box-shadow 0.12s, transform 0.11s;
+    letter-spacing: 1px;
+  }
+  .choices button:hover {
+    background: linear-gradient(95deg, #2845b7 60%, #416bb0 100%);
+    box-shadow: 0 6px 20px rgba(80,80,160,0.16);
+    transform: translateY(-2px) scale(1.04);
+  }
+  
+  @media (max-width: 800px) {
+    .game-container {
+      padding: 1.5rem 0.5rem;
+      min-width: unset;
+      max-width: 96vw;
+    }
+    .maze-area {
+      width: 98vw;
+      max-width: 350px;
+      height: 110px;
+    }
+    .game-title {
+      font-size: 1.4rem;
+    }
+    .story {
+      font-size: 1rem;
+    }
+    .choices button {
+      padding: 0.6em 1.2em;
+      font-size: 0.97rem;
+    }
+  }
